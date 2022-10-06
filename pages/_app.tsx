@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { MantineProvider } from '@mantine/core'
 import { useColorScheme } from '@mantine/hooks'
 import { ModalsProvider } from '@mantine/modals'
+import { NotificationsProvider } from '@mantine/notifications'
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props
@@ -19,7 +20,9 @@ export default function App(props: AppProps) {
         withNormalizeCSS
         theme={{ colorScheme: preferredColorScheme }}>
         <ModalsProvider>
-          <Component {...pageProps} />
+          <NotificationsProvider>
+            <Component {...pageProps} />
+          </NotificationsProvider>
         </ModalsProvider>
       </MantineProvider>
     </>
